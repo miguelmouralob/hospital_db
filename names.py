@@ -7,21 +7,20 @@ cursor.execute('''
     CREATE TABLE IF NOT EXISTS pessoas(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT,
-        idade INTEGER
+        idade INTEGER,
+        email TEXT
     )
 ''')
 connect.commit()
 
-
-
-
 class Nomes():
-    def __init__(self):
+    def __init__(self): 
         self.n = input('Digite o nome do usuário: ').title()
         self.idade = int(input('Digite a idade: '))
-        cursor.execute('INSERT INTO pessoas (nome, idade) VALUES (?, ?)', (self.n, self.idade))
+        self.email = f'{self.n.lower()}{self.idade}@gmail.com'
+        cursor.execute('INSERT INTO pessoas (nome, idade, email) VALUES (?, ?, ?)', (self.n, self.idade, self.email))
         connect.commit()
-        self.id = cursor.lastrowid
+        self.id = cursor.lastrowid 
 
 class Pw():
     def __init__(self):
@@ -35,7 +34,7 @@ pw = -1
 
 while pw != 1:
     pessoa = Nomes()
-    names.append(f'[{pessoa.id} - {pessoa.n} ({pessoa.idade})]')
+    names.append(f'[{pessoa.id} - {pessoa.n} ({pessoa.idade}), {pessoa.email}]')
     print(', '.join(names))
 
     kp = -1
@@ -54,7 +53,7 @@ while pw != 1:
             case _:
                 print('Digite uma opção válida!')
 
-    if pessoa.id > maioridade:
+    if pessoa.idade > maioridade:
         maioridade = pessoa.idade
         maiornome = pessoa.n
 
