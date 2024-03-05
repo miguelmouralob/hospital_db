@@ -4,7 +4,7 @@ Nesse projeto é utilizada a linguagem de programação Python que integra um ba
 
 <h1>Funcionalidade</h1>
 
-Adicionar o nome e a idade da pessoa em uma lista e automaticamente armazenar no banco de dados.
+Adicionar o nome e a idade da pessoa em uma lista;<br> O programa irá automaticamente criar( caso não exista ) e armazenar a lista em um banco de dados.
 
 <h1>Características</h1>
 
