@@ -32,22 +32,26 @@ class Nomes():
             else:
                 print('É preciso escolher o genêro entre Masculino(M) e Feminino(F)!')
 
-        self.email = f'{self.n.lower()}{self.idade}@gmail.com'
-        cursor.execute('INSERT INTO pessoas (nome, idade, sexualidade, email) VALUES (?, ?, ?, ?)', (self.n, self.idade, self.sexo, self.email))
+        #self.email = f'{self.n.lower()}{self.idade}@gmail.com'
+
+        cursor.execute('INSERT INTO pessoas (nome, idade, sexualidade) VALUES (?, ?, ?)', (self.n, self.idade, self.sexo))
         connect.commit()
-        self.id = cursor.lastrowid 
+        self.id = cursor.lastrowid
+
+        self.email = f'{self.n.lower()}{self.id}{self.idade}@gmail.com'
+        cursor.execute('UPDATE pessoas SET email = ? WHERE id = ?', (self.email, self.id))
+        connect.commit()
 
 class Pw():
     def __init__(self):
         self.pw = int(input('Quer continuar? Sim(0) ou Não(1): '))
 
 
-#class Sex():
-#    if pessoa.sexo == 
-
-
 names = []
+
+menoridade = 70
 maioridade = 0
+menornome = ''
 maiornome = ''
 
 pw = -1
@@ -77,6 +81,11 @@ while pw != 1:
         maioridade = pessoa.idade
         maiornome = pessoa.n
 
+    if pessoa.idade < menoridade:
+        menoridade = pessoa.idade
+        menornome = pessoa.n
+
 connect.close()
 
 print(f'{maiornome} é a pessoa mais velha do grupo com {maioridade} anos. ')
+print(f'{menornome} é a pessoa mais nova do grupo com {menoridade} anos. ')
