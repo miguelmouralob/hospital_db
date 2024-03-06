@@ -32,8 +32,6 @@ class Nomes():
             else:
                 print('É preciso escolher o genêro entre Masculino(M) e Feminino(F)!')
 
-        #self.email = f'{self.n.lower()}{self.idade}@gmail.com'
-
         cursor.execute('INSERT INTO pessoas (nome, idade, sexualidade) VALUES (?, ?, ?)', (self.n, self.idade, self.sexo))
         connect.commit()
         self.id = cursor.lastrowid
@@ -87,5 +85,5 @@ while pw != 1:
 
 connect.close()
 
-print(f'{maiornome} é a pessoa mais velha do grupo com {maioridade} anos. ')
-print(f'{menornome} é a pessoa mais nova do grupo com {menoridade} anos. ')
+print(f'{maiornome} é a pessoa mais velha dentro dessa lista gerada com {maioridade} anos. ')
+print(f'{menornome} é a pessoa mais nova dentro dessa lista gerada com {menoridade} anos. ')
