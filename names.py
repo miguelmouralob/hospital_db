@@ -17,7 +17,7 @@ connect.commit()
 
 class Estados():
     def __init__(self):
-        self.estados = ['RJ']
+        self.estados = ['AL', 'AP', 'AM', 'BA', 'CA', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO']
 
 selecionar = Estados()
 
@@ -44,7 +44,7 @@ class Nomes():
             if self.estado in selecionar.estados:
                 break
             else:
-                print('Digite um estado existente!')
+                print('Digite a sigla de um estado existente!')
 
         cursor.execute('INSERT INTO pessoas (nome, idade, sexualidade, estado) VALUES (?, ?, ?, ?)', (self.n, self.idade, self.sexo, self.estado))
         connect.commit()
