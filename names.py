@@ -9,10 +9,17 @@ cursor.execute('''
         nome TEXT,
         idade INTEGER,
         sexualidade TEXT,
+        estado TEXT,
         email TEXT
     )
 ''')
 connect.commit()
+
+class Estados():
+    def __init__(self):
+        self.estados = ['RJ']
+
+selecionar = Estados()
 
 class Nomes():
     def __init__(self): 
@@ -32,7 +39,14 @@ class Nomes():
             else:
                 print('É preciso escolher o genêro entre Masculino(M) e Feminino(F)!')
 
-        cursor.execute('INSERT INTO pessoas (nome, idade, sexualidade) VALUES (?, ?, ?)', (self.n, self.idade, self.sexo))
+        while True:
+            self.estado = input('Digite o estado: ').upper()
+            if self.estado in selecionar.estados:
+                break
+            else:
+                print('Digite um estado existente!')
+
+        cursor.execute('INSERT INTO pessoas (nome, idade, sexualidade, estado) VALUES (?, ?, ?, ?)', (self.n, self.idade, self.sexo, self.estado))
         connect.commit()
         self.id = cursor.lastrowid
 
@@ -56,7 +70,7 @@ pw = -1
 
 while pw != 1:
     pessoa = Nomes()
-    names.append(f'[{pessoa.id} - {pessoa.n} ({pessoa.idade}), {pessoa.sexo}, {pessoa.email}]')
+    names.append(f'[{pessoa.id} - {pessoa.n} ({pessoa.idade}), {pessoa.sexo}, {pessoa.estado}, {pessoa.email}]')
     print(', '.join(names))
 
     kp = -1
