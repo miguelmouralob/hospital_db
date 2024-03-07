@@ -79,11 +79,6 @@ class Pw():
 names = []
 medidade = []
 
-menoridade = 70
-maioridade = 0
-menornome = ''
-maiornome = ''
-
 pw = -1
 
 while pw != 1:
@@ -110,29 +105,23 @@ while pw != 1:
             case _:
                 print('Digite uma opção válida!')
 
-    if pessoa.idade > maioridade:
-        maioridade = pessoa.idade
-        maiornome = pessoa.n
+    cursor.execute('SELECT nome, MIN(idade) FROM pessoas')
+    result = cursor.fetchone()
+    menornome_db, menoridade_db = result[0], result[1]
 
-    if pessoa.idade < menoridade:
-        menoridade = pessoa.idade
-        menornome = pessoa.n
+    cursor.execute('SELECT nome, MAX(idade) FROM pessoas')
+    result = cursor.fetchone()
+    maiornome_db, maioridade_db = result[0], result[1]
 
-
-    cursor.execute('SELECT idade FROM pessoas')
-    idades_bd = cursor.fetchall()
-
-    idades_bd = [age[0] for age in idades_bd]
-
-    media_bd = sum(idades_bd) / len(idades_bd)
-
+    cursor.execute('SELECT AVG(idade) FROM pessoas')
+    media_bd = cursor.fetchone()[0]
 
 connect.close()
 
 sleep(1)
-print(f'{maiornome} é a pessoa mais velha dentro dessa lista gerada com {maioridade} anos. ')
+print(f'{maiornome_db} é a pessoa mais velha cadastrada no banco de dados gerada com {maioridade_db} anos. ')
 sleep(1)
-print(f'{menornome} é a pessoa mais nova dentro dessa lista gerada com {menoridade} anos. ')
+print(f'{menornome_db} é a pessoa mais nova cadastrada no banco de dados com {menoridade_db} anos. ')
 sleep(1)
 print('')
-print(f'A média de idades no banco de dados é de {media_bd} anos. ')
+print(f'A média de idades cadastrada no banco de dados é de {media_bd} anos. ')
