@@ -11,7 +11,7 @@ cursor.execute('''
         idade INTEGER,
         sexualidade TEXT,
         estado TEXT,
-        faixa-etaria TEXT,
+        faixa_etaria TEXT,
         email TEXT
     )
 ''')
@@ -36,14 +36,14 @@ class Nomes():
             else:
                 print('Apenas pesseoas entre 16-70 anos são aceitas!')
 
-            if 16<= self.idade <= 19:
-                self.faixaetaria = 'Jovem'
-            elif 20<= self.idade <= 59:
-                self.faixaetaria = 'Adulto'
-            elif 60<= self.idade <= 70:
-                self.faixaetaria = 'Idoso'
-            else:
-                print('Apenas pesseoas entre 16-70 anos são aceitas!')
+        if 16<= self.idade <= 19:
+            self.faixaetaria = 'Jovem'
+        elif 20<= self.idade <= 59:
+            self.faixaetaria = 'Adulto'
+        elif 60<= self.idade <= 70:
+            self.faixaetaria = 'Idoso'
+        else:
+            print('Apenas pesseoas entre 16-70 anos são aceitas!')
 
 
         while True:
@@ -62,7 +62,7 @@ class Nomes():
             else:
                 print('Digite a sigla de um estado existente!')
 
-        cursor.execute('INSERT INTO pessoas (nome, idade, sexualidade, estado, faixa-etaria) VALUES (?, ?, ?, ?, ?)', (self.n, self.idade, self.sexo, self.estado, self.faixaetaria))
+        cursor.execute('INSERT INTO pessoas (nome, idade, sexualidade, estado, faixa_etaria) VALUES (?, ?, ?, ?, ?)', (self.n, self.idade, self.sexo, self.estado, self.faixaetaria))
         connect.commit()
         self.id = cursor.lastrowid
 
