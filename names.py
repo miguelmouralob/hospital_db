@@ -60,6 +60,7 @@ class Pw():
 
 
 names = []
+medidade = []
 
 menoridade = 70
 maioridade = 0
@@ -72,6 +73,8 @@ while pw != 1:
     pessoa = Nomes()
     names.append(f'[{pessoa.id} - {pessoa.n} ({pessoa.idade}), {pessoa.sexo}, {pessoa.estado}, {pessoa.email}]')
     print(', '.join(names))
+
+    medidade.append(pessoa.idade)
 
     kp = -1
 
@@ -97,7 +100,12 @@ while pw != 1:
         menoridade = pessoa.idade
         menornome = pessoa.n
 
+    
+    media = sum(medidade) / len(medidade)
+
 connect.close()
 
 print(f'{maiornome} é a pessoa mais velha dentro dessa lista gerada com {maioridade} anos. ')
 print(f'{menornome} é a pessoa mais nova dentro dessa lista gerada com {menoridade} anos. ')
+print('')
+print(f'A média de idades nessa lista é de {media} anos. ')
