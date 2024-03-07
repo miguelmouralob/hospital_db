@@ -118,8 +118,14 @@ while pw != 1:
         menoridade = pessoa.idade
         menornome = pessoa.n
 
-    
-    media = sum(medidade) / len(medidade)
+
+    cursor.execute('SELECT idade FROM pessoas')
+    idades_bd = cursor.fetchall()
+
+    idades_bd = [age[0] for age in idades_bd]
+
+    media_bd = sum(idades_bd) / len(idades_bd)
+
 
 connect.close()
 
@@ -129,4 +135,4 @@ sleep(1)
 print(f'{menornome} é a pessoa mais nova dentro dessa lista gerada com {menoridade} anos. ')
 sleep(1)
 print('')
-print(f'A média de idades nessa lista é de {media} anos. ')
+print(f'A média de idades no banco de dados é de {media_bd} anos. ')
