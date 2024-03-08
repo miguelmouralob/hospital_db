@@ -18,32 +18,10 @@ cursor.execute('''
 ''')
 connect.commit()
 
-#class Doenças():
-#    def __init__(self):
-#        self.doenca = None
-
-#    def escolher_doenca(self):
-#        print('''Qual a doença classificada ao paciente?: 
-        #[0]Covid
-        #[1]Dengue
-        #[2]AIDS
-        #[3]...
-        #[4]...
-        #[5]...
-        #[6]...
-        #[7]...
-        #[8]...
-        #[9]...
-        #[10]...\n''')
-
-#    def obter_nome_doenca(self):
-#        nome_doencas = ['Covid', 'Dengue', 'AIDS']
-#        return nome_doencas[int(self.doenca)]
-
-
 class Estados():
     def __init__(self):
-        self.estados = ['AL', 'AP', 'AM', 'BA', 'CA', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO']
+        self.estados = ['AL', 'AP', 'AM', 'BA', 'CA', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 
+                        'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO']
 
 selecionar = Estados()
 
@@ -88,17 +66,18 @@ class Nomes():
 
         while True:
             self.doenca = int(input('''Qual a doença classificada ao paciente?: 
-        [0]Covid
-        [1]Dengue
-        [2]AIDS
-        [3]...
-        [4]...
-        [5]...
-        [6]...
-        [7]...
-        [8]...
-        [9]...
-        [10]...\n'''))
+    [0]Covid
+    [1]Dengue
+    [2]AIDS
+    [3]...
+    [4]...
+    [5]...
+    [6]...
+    [7]...
+    [8]...
+    [9]...
+    [10]...\n
+    Resposta: '''))
             
             match self.doenca:
                 case 0:
@@ -129,7 +108,6 @@ class Pw():
 
 
 names = []
-medidade = []
 
 pw = -1
 
@@ -138,8 +116,6 @@ while pw != 1:
     names.append(f'[{pessoa.id} - {pessoa.n} ({pessoa.idade}), {pessoa.sexo}, {pessoa.estado}, {pessoa.email}]')
     sleep(1)
     print(', '.join(names))
-
-    medidade.append(pessoa.idade)
 
     kp = -1
 
