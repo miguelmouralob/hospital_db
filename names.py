@@ -12,10 +12,34 @@ cursor.execute('''
         sexualidade TEXT,
         estado TEXT,
         faixa_etaria TEXT,
+        doenças TEXT,
         email TEXT
     )
 ''')
 connect.commit()
+
+#class Doenças():
+#    def __init__(self):
+#        self.doenca = None
+
+#    def escolher_doenca(self):
+#        print('''Qual a doença classificada ao paciente?: 
+        #[0]Covid
+        #[1]Dengue
+        #[2]AIDS
+        #[3]...
+        #[4]...
+        #[5]...
+        #[6]...
+        #[7]...
+        #[8]...
+        #[9]...
+        #[10]...\n''')
+
+#    def obter_nome_doenca(self):
+#        nome_doencas = ['Covid', 'Dengue', 'AIDS']
+#        return nome_doencas[int(self.doenca)]
+
 
 class Estados():
     def __init__(self):
@@ -62,7 +86,35 @@ class Nomes():
             else:
                 print('Digite a sigla de um estado existente!')
 
-        cursor.execute('INSERT INTO pessoas (nome, idade, sexualidade, estado, faixa_etaria) VALUES (?, ?, ?, ?, ?)', (self.n, self.idade, self.sexo, self.estado, self.faixaetaria))
+        while True:
+            self.doenca = int(input('''Qual a doença classificada ao paciente?: 
+        [0]Covid
+        [1]Dengue
+        [2]AIDS
+        [3]...
+        [4]...
+        [5]...
+        [6]...
+        [7]...
+        [8]...
+        [9]...
+        [10]...\n'''))
+            
+            match self.doenca:
+                case 0:
+                    self.doenca = 'Covid'
+                    break
+                case 1:
+                    self.doenca = 'Dengue'
+                    break
+                case 2:
+                    self.doenca = 'AIDS'
+                    break
+                case _:
+                    print('Escolha uma opção válida!')
+
+
+        cursor.execute('INSERT INTO pessoas (nome, idade, sexualidade, estado, faixa_etaria, doenças) VALUES (?, ?, ?, ?, ?, ?)', (self.n, self.idade, self.sexo, self.estado, self.faixaetaria, self.doenca))
         connect.commit()
         self.id = cursor.lastrowid
 
