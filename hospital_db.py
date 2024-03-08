@@ -66,17 +66,16 @@ class Nomes():
 
         while True:
             self.doenca = int(input('''Qual a doença classificada ao paciente?: 
-    [0]Covid
-    [1]Dengue
-    [2]AIDS
-    [3]...
-    [4]...
-    [5]...
-    [6]...
-    [7]...
-    [8]...
-    [9]...
-    [10]...\n
+    [0]AIDS
+    [1]Alzheimer
+    [2]AVC
+    [3]Câncer
+    [4]Covid
+    [5]Dengue
+    [6]Depressão
+    [7]Diabetes
+    [8]Hipertensão
+    [9]Tuberculose\n
     Resposta: '''))
             
             match self.doenca:
@@ -86,7 +85,25 @@ class Nomes():
                 case 1:
                     self.doenca = 'Dengue'
                     break
-                case 2:
+                case 3:
+                    self.doenca = 'AIDS'
+                    break
+                case 4:
+                    self.doenca = 'Covid'
+                    break
+                case 5:
+                    self.doenca = 'Dengue'
+                    break
+                case 6:
+                    self.doenca = 'AIDS'
+                    break
+                case 7:
+                    self.doenca = 'Covid'
+                    break
+                case 8:
+                    self.doenca = 'Dengue'
+                    break
+                case 9:
                     self.doenca = 'AIDS'
                     break
                 case _:
