@@ -80,13 +80,13 @@ class Nomes():
             
             match self.doenca:
                 case 0:
-                    self.doenca = 'Covid'
+                    self.doenca = 'AIDS'
                     break
                 case 1:
-                    self.doenca = 'Dengue'
+                    self.doenca = 'Alzheimer'
                     break
                 case 3:
-                    self.doenca = 'AIDS'
+                    self.doenca = 'AVC'
                     break
                 case 4:
                     self.doenca = 'Covid'
@@ -95,16 +95,16 @@ class Nomes():
                     self.doenca = 'Dengue'
                     break
                 case 6:
-                    self.doenca = 'AIDS'
+                    self.doenca = 'Depressão'
                     break
                 case 7:
-                    self.doenca = 'Covid'
+                    self.doenca = 'Diabetes'
                     break
                 case 8:
-                    self.doenca = 'Dengue'
+                    self.doenca = 'Hipertensão'
                     break
                 case 9:
-                    self.doenca = 'AIDS'
+                    self.doenca = 'Tuberculose'
                     break
                 case _:
                     print('Escolha uma opção válida!')
