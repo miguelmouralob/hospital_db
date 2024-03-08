@@ -64,6 +64,7 @@ class Nomes():
             else:
                 print('Digite a sigla de um estado existente!')
 
+        sleep(1)
         while True:
             self.doenca = int(input('''Qual a doença classificada ao paciente?: 
     [0]AIDS
@@ -85,8 +86,11 @@ class Nomes():
                 case 1:
                     self.doenca = 'Alzheimer'
                     break
-                case 3:
+                case 2:
                     self.doenca = 'AVC'
+                    break
+                case 3:
+                    self.doenca = 'Câncer'
                     break
                 case 4:
                     self.doenca = 'Covid'
@@ -107,7 +111,11 @@ class Nomes():
                     self.doenca = 'Tuberculose'
                     break
                 case _:
+                    sleep(1)
+                    print('')
                     print('Escolha uma opção válida!')
+                    print('')
+                    sleep(1)
 
 
         cursor.execute('INSERT INTO pessoas (nome, idade, sexualidade, estado, faixa_etaria, doenças) VALUES (?, ?, ?, ?, ?, ?)', (self.n, self.idade, self.sexo, self.estado, self.faixaetaria, self.doenca))
@@ -121,6 +129,7 @@ class Nomes():
 class Pw():
     def __init__(self):
         sleep(1)
+        print('')
         self.pw = int(input('Quer continuar? Sim(0) ou Não(1): '))
 
 
@@ -130,6 +139,7 @@ pw = -1
 
 while pw != 1:
     pessoa = Nomes()
+    print('')
     names.append(f'[{pessoa.id} - {pessoa.n} ({pessoa.idade}), {pessoa.sexo}, {pessoa.estado}, {pessoa.email}]')
     sleep(1)
     print(', '.join(names))
@@ -169,4 +179,4 @@ sleep(1)
 print(f'{menornome_db} é a pessoa mais nova cadastrada no banco de dados com {menoridade_db} anos. ')
 sleep(1)
 print('')
-print(f'A média de idades cadastrada no banco de dados é de {media_bd} anos. ')
+print(f'A média de idades cadastrada no banco de dados é de {media_bd:.2f} anos. ')
