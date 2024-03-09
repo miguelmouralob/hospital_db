@@ -1,6 +1,6 @@
 <h1>Contexto</h1>
 
-Nesse projeto é utilizada a linguagem de programação Python que integra um banco de dados usando SQLite<br>Responsável por armazenar os dados dos usuários nele.
+Linguagem de programação Python utilizada nesse projeto.<br>Responsável por integrar as informações dos pacientes em um banco de dados dp hospital usando SQLite.<br>Responsável por armazenar os dados dos pacientes nele.
 
 <h1>Funcionalidade</h1>
 
@@ -11,6 +11,7 @@ Adicionar informações da pessoa, exemplo:
   <li>sexualidade</li>
   <li>estado</li>
   <li>faixa etaria</li>
+  <li>doenças</li>
   <li>email</li>
 </ul> 
 O programa irá automaticamente criar ( caso não exista ) e armazenar a lista com as informações em um banco de dados.
@@ -18,11 +19,12 @@ O programa irá automaticamente criar ( caso não exista ) e armazenar a lista c
 <h1>Características</h1>
 
 <ul>
-  <li>Adicionar mais alguém caso queira</li>
+  <li>Cadastrar mais algum paciente caso precise</li>
 </ul>
 
 Retornando também:
 <ul>
   <li>Mais velho do BD</li>
   <li>Mais novo do BD</li>
+  <li>Média de idades do BD</li>
 </ul>
