@@ -27,11 +27,11 @@ selecionar = Estados()
 
 class Nomes():
     def __init__(self): 
-        self.n = input('Digite o nome do usuário: ').title()
+        self.n = input('Nome do paciente: ').title()
         sleep(1)
 
         while True:
-            self.idade = int(input('Digite a idade: '))
+            self.idade = int(input('Idade: '))
             sleep(1)
             if self.idade >= 16 and self.idade <= 70:
                 break
@@ -49,15 +49,15 @@ class Nomes():
 
 
         while True:
-            self.sexo = input('Digite a sexualidade (Masculino(M) OU Feminino(F)): ').upper()
+            self.sexo = input('Sexualidade (Masculino(M) OU Feminino(F)): ').upper()
             sleep(1)
             if self.sexo.startswith('M') or self.sexo.startswith('F'):
                 break
             else:
-                print('É preciso escolher o genêro entre Masculino(M) e Feminino(F)!')
+                print('Escolher o genêro entre Masculino(M) e Feminino(F)!')
 
         while True:
-            self.estado = input('Digite o estado: ').upper()
+            self.estado = input('Estado: ').upper()
             sleep(1)
             if self.estado in selecionar.estados:
                 break
@@ -113,7 +113,7 @@ class Nomes():
                 case _:
                     sleep(1)
                     print('')
-                    print('Escolha uma opção válida!')
+                    print('Escolha uma opção válida! Entre (0-9)')
                     print('')
                     sleep(1)
 
@@ -130,7 +130,7 @@ class Pw():
     def __init__(self):
         sleep(1)
         print('')
-        self.pw = int(input('Quer continuar? Sim(0) ou Não(1): '))
+        self.pw = int(input('Deseja continuar adicionando? Sim(0) ou Não(1): '))
 
 
 names = []
